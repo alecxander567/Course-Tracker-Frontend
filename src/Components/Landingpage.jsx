@@ -42,7 +42,7 @@ function Landingpage() {
                     <h1 className="display-4 fw-bold">Welcome to Course Tracker</h1>
 
                     <p className="lead mt-3">
-                    Keep track of all your learning courses in one place. Add, update, and manage your progress with ease.
+                        Keep track of all your learning courses in one place. Add, update, and manage your progress with ease.
                     </p>
 
                     <div className="my-4">
@@ -51,8 +51,8 @@ function Landingpage() {
                     <i className="bi bi-clock-history text-info fs-3 mx-2"></i>
                     </div>
 
-                    <Button variant="primary" size="lg" href="#courses">
-                    Get Started
+                    <Button  as={Link} to="/login" variant="primary" size="lg" href="#courses">
+                        Get Started
                     </Button>
                 </Col>
                 </Row>

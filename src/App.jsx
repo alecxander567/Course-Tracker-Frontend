@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./Components/Landingpage.jsx";
-import Homepage from './Components/Homepage';
+import Homepage from './Components/Homepage.jsx';
+import Courses from './Components/Courses.jsx';
 import Signup from './Pages/Signup.jsx';
 import Login from './Pages/Login.jsx';
 
@@ -12,8 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<Signup />} />
-           <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Homepage />} />
+          <Route path="/courses" element={<Courses />} />
         </Routes>
       </Router>
     </>
