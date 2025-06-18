@@ -141,8 +141,14 @@ function Profile() {
         });
     };
 
-    const handleLogout = () => {
-        navigate('/');
+    const handleLogout = async () => {
+        try {
+            const res = await axios.post("http://localhost:8080/api/users/logout", {}, { withCredentials: true });
+            localStorage.removeItem("user");
+            navigate('/');
+        } catch (error) {
+            console.error("Logout failed:", error.response?.data || error.message);
+        }
     };
 
   return (
