@@ -11,16 +11,20 @@ function Login() {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
     const handleChange = (e) => {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value });
+        setCredentials((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Submitting credentials:", credentials); 
         try {
-        const res = await axios.post("http://localhost:8080/api/users/login", credentials);
-        navigate("/home");
+            const res = await axios.post("http://localhost:8080/api/users/login", credentials);
+            navigate("/home");
         } catch (err) {
-        alert("Invalid email or password.");
+            alert("Invalid email or password.");
         }
     };
 
