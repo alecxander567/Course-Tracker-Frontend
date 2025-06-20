@@ -191,13 +191,13 @@ function Profile() {
             <header className="bg-primary py-2 px-4 border-bottom shadow-sm d-flex justify-content-between align-items-center">
                     <h2 className="mb-0 text-light" style={{ fontWeight: "900" }}>Dashboard</h2>
                     <div className="d-flex align-items-center gap-3">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                        <a href="https://www.facebook.com/alec.xander.espaldon.2024" target="_blank" rel="noopener noreferrer" className="text-light">
                             <i className="bi bi-facebook fs-4"></i>
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                        <a href="https://github.com/alecxander567" target="_blank" rel="noopener noreferrer" className="text-light">
                             <i className="bi bi-github fs-4"></i>
                         </a>
-                        <a href="https://reddit.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                        <a href="https://www.reddit.com/user/Historical_Rub8018/" target="_blank" rel="noopener noreferrer" className="text-light">
                             <i className="bi bi-reddit fs-4"></i>
                         </a>
                     </div>
