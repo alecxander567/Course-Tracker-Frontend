@@ -242,9 +242,9 @@ function Homepage() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/settings" className="nav-link text-white">
-                            <i className="bi bi-gear me-2"></i>
-                            Settings
+                        <Link to="/notes" className="nav-link text-white">
+                            <i className="bi bi-journal-text me-2"></i> 
+                            Notes
                         </Link>
                     </li>
                 </ul>

@@ -172,7 +172,10 @@ function Profile() {
             <Link to="/profile" className="nav-link text-white"><i className="bi bi-person me-2"></i>Profile</Link>
           </li>
           <li>
-            <Link to="/settings" className="nav-link text-white"><i className="bi bi-gear me-2"></i>Settings</Link>
+            <Link to="/notes" className="nav-link text-white">  
+            <i className="bi bi-journal-text me-2"></i> 
+                Notes
+            </Link>
           </li>
         </ul>
         <hr />
@@ -185,9 +188,20 @@ function Profile() {
 
       {/* Main Content */}
       <div className="flex-grow-1" style={{ minHeight: "100vh", marginLeft: "250px" }}>
-        <header className="bg-primary py-2 px-4 border-bottom shadow-sm d-flex justify-content-between align-items-center">
-          <h2 className="mb-0 text-light" style={{ fontWeight: "900" }}>Profile</h2>
-        </header>
+            <header className="bg-primary py-2 px-4 border-bottom shadow-sm d-flex justify-content-between align-items-center">
+                    <h2 className="mb-0 text-light" style={{ fontWeight: "900" }}>Dashboard</h2>
+                    <div className="d-flex align-items-center gap-3">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                            <i className="bi bi-facebook fs-4"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                            <i className="bi bi-github fs-4"></i>
+                        </a>
+                        <a href="https://reddit.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                            <i className="bi bi-reddit fs-4"></i>
+                        </a>
+                    </div>
+            </header>
 
         <main className="p-4">
                 <div className="d-flex gap-4">
@@ -364,7 +378,7 @@ function Profile() {
                                         placeholder="Add a new goal..."
                                     />
                                     <button className="btn btn-primary" onClick={handleAddGoal}>
-                                        Add
+                                        <i class="bi bi-plus-lg"></i>
                                     </button>
                                     </div>
 
