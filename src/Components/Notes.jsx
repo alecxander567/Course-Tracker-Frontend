@@ -70,7 +70,9 @@ function Notes() {
                 content
             });
 
-            setNotes(notes.map(n => (n.id === editNoteId ? res.data : n)));
+            setNotes(prevNotes =>
+                prevNotes.map(n => (n.id === editNoteId ? res.data : n))
+            );
             setEditNoteId(null);
             setTitle("");
             setContent("");
@@ -161,65 +163,77 @@ function Notes() {
                 <main className="p-4 d-flex flex-column align-items-center">
                     <div className="w-100" style={{ maxWidth: "900px" }}>
                         <div className="d-flex justify-content-end mb-3">
-                            <button className="btn btn-success" onClick={() => {
-                                setShowForm(!showForm);
+                        <button
+                            className="btn btn-success"
+                            onClick={() => {
+                            if (showForm || editNoteId) {
+                                setShowForm(false);
                                 setEditNoteId(null);
                                 setTitle("");
                                 setContent("");
-                            }}>
-                                <i className="bi bi-plus-circle me-2"></i> {editNoteId ? "Cancel Editing" : "Create New Note"}
-                            </button>
+                            } else {
+                                setShowForm(true);
+                            }
+                            }}
+                        >
+                            <i className="bi bi-plus-circle me-2"></i>{" "}
+                            {editNoteId ? "Cancel Editing" : showForm ? "Cancel" : "Create New Note"}
+                        </button>
                         </div>
 
                         {showForm && (
-                            <div className="card p-3 mb-4 shadow-sm">
-                                <h5>{editNoteId ? "Edit Note" : "Create a New Note"}</h5>
-                                <input
-                                    type="text"
-                                    placeholder="Enter note title"
-                                    className="form-control mb-2"
-                                    value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
-                                />
-                                <textarea
-                                    placeholder="Write your learning experience..."
-                                    className="form-control mb-2"
-                                    rows="4"
-                                    value={content}
-                                    onChange={(e) => setContent(e.target.value)}
-                                ></textarea>
-                                <button className="btn btn-primary" onClick={editNoteId ? handleSaveEdit : handleCreateNote}>
-                                    {editNoteId ? "Update Note" : "Save Note"}
-                                </button>
-                            </div>
+                        <div className="card p-3 mb-4 shadow-sm">
+                            <h5>{editNoteId ? "Edit Note" : "Create a New Note"}</h5>
+                            <input
+                            type="text"
+                            placeholder="Enter note title"
+                            className="form-control mb-2"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            />
+                            <textarea
+                            placeholder="Write your learning experience..."
+                            className="form-control mb-2"
+                            rows="4"
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                            ></textarea>
+                            <button
+                            className="btn btn-primary"
+                            onClick={editNoteId ? handleSaveEdit : handleCreateNote}
+                            >
+                            {editNoteId ? "Update Note" : "Save Note"}
+                            </button>
+                        </div>
                         )}
 
                         <div className="d-flex flex-column gap-3">
-                            {notes.length === 0 ? (
-                                <p className="text-muted">No notes yet. Start by creating one!</p>
-                            ) : (
-                                notes.map((note) => (
-                                    <div className="card shadow-sm w-100" key={note.id}>
-                                        <div className="card-body">
-                                            <h5 className="card-title">{note.title}</h5>
-                                            <p className="card-text">{note.content}</p>
-                                            <div className="d-flex justify-content-end gap-2">
-                                                <button className="btn btn-sm btn-outline-primary" onClick={() => {
-                                                    setEditNoteId(note.id);
-                                                    setTitle(note.title);
-                                                    setContent(note.content);
-                                                    setShowForm(true);
-                                                }}>
-                                                    <i className="bi bi-pencil-square"></i>
-                                                </button>
-                                                <button className="btn btn-sm btn-outline-danger" onClick={() => handleDeleteNote(note.id)}>
-                                                    <i className="bi bi-trash"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            )}
+                        {notes.length === 0 ? (
+                            <p className="text-muted">No notes yet. Start by creating one!</p>
+                        ) : (
+                            notes.map((note) => (
+                            <div className="card shadow-sm w-100" key={note.id}>
+                                <div className="card-body">
+                                <h5 className="card-title">{note.title}</h5>
+                                <p className="card-text">{note.content}</p>
+                                <div className="d-flex justify-content-end gap-2">
+                                    <button
+                                    className="btn btn-sm btn-outline-primary"
+                                    onClick={() => handleEditNote(note)}
+                                    >
+                                    <i className="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button
+                                    className="btn btn-sm btn-outline-danger"
+                                    onClick={() => handleDeleteNote(note.id)}
+                                    >
+                                    <i className="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                            ))
+                        )}
                         </div>
                     </div>
                 </main>
