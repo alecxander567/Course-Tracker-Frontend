@@ -59,6 +59,30 @@ function Landingpage() {
             </Container>
         </div>
 
+        {/* Features Section */}
+        <section className="py-5 bg-white border-top">
+            <Container>
+                <h2 className="text-center mb-5 fw-bold">Features</h2>
+                <Row className="g-4">
+                <Col md={4} className="text-center">
+                    <i className="bi bi-journal-text text-primary fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Organize Your Notes</h5>
+                    <p className="text-muted">Easily jot down and edit learning notes for each course you take.</p>
+                </Col>
+                <Col md={4} className="text-center">
+                    <i className="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Track Progress</h5>
+                    <p className="text-muted">Monitor your course completion and stay motivated with clear progress tracking.</p>
+                </Col>
+                <Col md={4} className="text-center">
+                    <i className="bi bi-cloud-upload text-warning fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Access Anywhere</h5>
+                    <p className="text-muted">Securely save your learning data and access it across all your devices.</p>
+                </Col>
+                </Row>
+            </Container>
+        </section>
+
         <footer className="bg-white text-center py-4 border-top mt-auto">
             <Container>
                 <p className="mb-2">© {new Date().getFullYear()} Course Tracker</p>
